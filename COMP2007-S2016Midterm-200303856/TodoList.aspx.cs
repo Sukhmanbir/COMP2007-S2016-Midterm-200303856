@@ -151,19 +151,21 @@ namespace COMP2007_S2016Midterm_200303856
                 {
 
                     foreach (GridViewRow row in TodoGridView.Rows)
-            {
-                if (row.RowType == DataControlRowType.DataRow)
-                {
-                    CheckBox CompletedTextBox = (row.Cells[3].FindControl("Completed") as CheckBox);
-                    if (CompletedTextBox.Checked)
                     {
-                        updatedTodo.Completed = true;
-                    }
-                    else
-                    {
-                        updatedTodo.Completed = false;
-                    }
+                        if (row.RowType == DataControlRowType.DataRow)
+                        {
+                            CheckBox CompletedTextBox = (row.Cells[3].FindControl("Completed") as CheckBox);
+                            if (CompletedTextBox.Checked)
+                            {
+                                updatedTodo.Completed = true;
+                            }
+                            else
+                            {
+                                updatedTodo.Completed = false;
+                            }
 
+                        }
+                    }
                 }
             }
         }
