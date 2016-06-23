@@ -38,6 +38,9 @@ namespace COMP2007_S2016Midterm_200303856
                 case "Todo List":
                     todo.Attributes.Add("class", "active");
                     break;
+                case "Add Todo":
+                    add.Attributes.Add("class", "active");
+                    break;
             }
         }
     }

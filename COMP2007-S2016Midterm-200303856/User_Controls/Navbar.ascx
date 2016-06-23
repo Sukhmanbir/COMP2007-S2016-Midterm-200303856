@@ -16,6 +16,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li id="home" runat="server"><a href="Default.aspx"><i class="fa fa-home fa-lg"></i> Home</a></li>
                 <li id="todo" runat="server"><a href="TodoList.aspx"><i class="fa fa-list-alt fa-lg"></i> Todo List</a></li>
+                <li id="add" runat="server"><a href="TodoDetails.aspx"><i class="fa fa-plus fa-lg"></i> Add Todo</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
