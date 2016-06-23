@@ -135,7 +135,37 @@ namespace COMP2007_S2016Midterm_200303856
         {
             GridViewRow gridRow = (sender as CheckBox).NamingContainer as GridViewRow;
 
-            //TodoDetails.GetTodo();
+            // populate the form with existing data from the database
+            int TodoID = Convert.ToInt32(Request.QueryString["TodoID"]);
+
+            // connect to the EF DB
+            using (TodoConnection db = new TodoConnection())
+            {
+                // populate a todo object instance with the TodoID from the URL Parameter
+                Todo updatedTodo = (from todo in db.Todos
+                                    where todo.TodoID == TodoID
+                                    select todo).FirstOrDefault();
+
+                // map the todo properties to the form controls
+                if (updatedTodo != null)
+                {
+
+                    foreach (GridViewRow row in TodoGridView.Rows)
+            {
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox CompletedTextBox = (row.Cells[3].FindControl("Completed") as CheckBox);
+                    if (CompletedTextBox.Checked)
+                    {
+                        updatedTodo.Completed = true;
+                    }
+                    else
+                    {
+                        updatedTodo.Completed = false;
+                    }
+
+                }
+            }
         }
     }
 }
